@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useGetTodosQuery } from '@/services/todosApi';
 import { Todo } from '@/types/Todo';
-import { store } from '@/store';
-import { todosApi } from '@/services/todosApi';
 import Link from 'next/link';
 
 const LIMIT = 10;
@@ -73,16 +71,4 @@ export async function getServerSideProps() {
     const todos = await res.json();
 
     return { props: { todos } };
-}
-
-
-export async function getStaticProps() {
-    await store.dispatch(
-        todosApi.endpoints.getTodos.initiate({ start: 0, limit: 10 })
-    );
-
-    return {
-        props: {},
-        revalidate: 10, // setiap 10 detik regenerate
-    };
 }
