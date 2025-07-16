@@ -54,5 +54,7 @@ npm install
 Run the App :
 npm run dev
 
+Demo Live : https://ikbal-ardiansah-front-end-test-ezv-ten.vercel.app/
+
 
 Thankyou
